@@ -1,21 +1,9 @@
-print("Golden Apple: Loaded!")
+-- Load individual apples
 
--- Register the Golden Apple!
-minetest.register_craftitem("gapple:gold_apple", {
-    description = "Golden Apple",
-    inventory_image = "gapple_gapple.png",
-    on_use = minetest.item_eat(20), -- This will restore full 20 hit points!
-})
-
-ItemStack("gapple:gold_apple", 99)
-
--- Build the recipe for the Gold Apple!
-minetest.register_craft({
-    type = "shaped",
-    output = "gapple:gold_apple 1",
-    recipe = {
-        {"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
-        {"default:gold_ingot", "default:apple", "default:gold_ingot"},
-        {"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
-    },
-})
+-- The order is the best to least from top to bottom
+dofile(minetest.get_modpath("gapple") .. "/obsidian.lua") -- +20 HP
+dofile(minetest.get_modpath("gapple") .. "/mese_crystal.lua") -- +18 HP
+dofile(minetest.get_modpath("gapple") .. "/diamond.lua") -- +16 HP
+dofile(minetest.get_modpath("gapple") .. "/copper.lua") -- +14 HP
+dofile(minetest.get_modpath("gapple") .. "/golden.lua") -- +12 HP
+dofile(minetest.get_modpath("gapple") .. "/steel.lua") -- +10 HP
