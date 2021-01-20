@@ -4,7 +4,7 @@
 minetest.register_craftitem("gapple:gold_apple", {
     description = "Golden Apple",
     inventory_image = "gapple_gold_apple.png",
-    on_use = minetest.item_eat(12),
+    on_use = minetest.item_eat(gapple_value_gold),
 })
 
 ItemStack("gapple:gold_apple", 99)
@@ -14,9 +14,9 @@ minetest.register_alias("gold_apple", "gapple:gold_apple")
 minetest.register_craft({
     type = "shaped",
     output = "gapple:gold_apple 1",
-    recipe = {
-        {"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
-        {"default:gold_ingot", "default:apple", "default:gold_ingot"},
-        {"default:gold_ingot", "default:gold_ingot", "default:gold_ingot"},
+    recipe = { -- Use the global variables to define a apple
+        {gapple_gold, gapple_gold, gapple_gold},
+        {gapple_gold, gapple_apple, gapple_gold},
+        {gapple_gold, gapple_gold, gapple_gold},
     },
 })
